@@ -1,16 +1,32 @@
-import React, { Component } from 'react'
-import Item from './Item'
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
-export class items extends Component {
+import Item from './Item';
+
+class Items extends Component {
   render() {
+    const { items } = this.props;
     return (
       <main>
-        {this.props.items.map(el => (
-            <Item key={el.id} item={el} />
+        {items.map((element) => (
+          <Item key={element.id} item={element} />
         ))}
       </main>
-    )
+    );
   }
 }
 
-export default items
+Items.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      img: PropTypes.string.isRequired,
+      desc: PropTypes.string.isRequired,
+      category: PropTypes.string.isRequired,
+      price: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
+
+export default Items;

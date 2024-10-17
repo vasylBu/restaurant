@@ -3,6 +3,7 @@ const config = {
         browser: true,
         node: true,
         es2021: true,
+        commonjs: true,
     },
     extends: [
         'eslint:recommended',
@@ -14,6 +15,9 @@ const config = {
         'plugin:cypress/recommended',
     ],
     settings: {
+        'react': {
+            'version': 'detect', // Automatically detect the React version
+        },
         'import/resolver': {
             node: {
                 extensions: ['.js', '.jsx'],
@@ -23,9 +27,20 @@ const config = {
             },
         },
     },
-    plugins: ['cypress', 'simple-import-sort', 'react'],
+    plugins: ['cypress', 'simple-import-sort', 'react', 'unicorn'],
     ignorePatterns: ['node_modules'],
     rules: {
+        'unicorn/prevent-abbreviations': [
+            'error',
+            {
+                allowList: {
+                    props: true,
+                },
+            },
+        ],
+        'simple-import-sort/imports': 'error',
+        'simple-import-sort/exports': 'error',
+        'unicorn/prefer-query-selector': 'error',
         'unicorn/filename-case': [
             'error',
             {
@@ -35,8 +50,6 @@ const config = {
                 },
             },
         ],
-        'simple-import-sort/exports': 'error',
-        'simple-import-sort/imports': 'error',
         'import/namespace': [2, { allowComputed: true }],
         'import/first': 'error',
         'import/newline-after-import': 'error',
@@ -48,7 +61,8 @@ const config = {
                 'unicorn/prefer-module': 'off',
                 'unicorn/filename-case': 'off',
                 'unicorn/prevent-abbreviations': 'off',
-                  
+                'no-undef': 'off',
+                'simple-import-sort/imports': 'off'
             },
         },
     ],
@@ -57,4 +71,5 @@ const config = {
     },
 };
 
+// eslint-disable-next-line no-undef
 module.exports = config;

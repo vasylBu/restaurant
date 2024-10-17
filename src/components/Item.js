@@ -14,7 +14,7 @@ export class Item extends Component {
       </div>
     );
   }
-}
+} 
 
 Item.propTypes = {
   item: PropTypes.shape({

@@ -119,3 +119,30 @@ main .addToCart:hover{
   transform: scale(1.5) translateY(-5px);
   
 }
+header .shopCartButton{
+  float: right;
+  cursor: pointer;
+  transition: color, transform 500ms ease;
+}
+header .shopCartButton:hover, 
+header .shopCartButton.active
+{
+  color: #dc3d3d;
+  transform: scale(1.5);
+}
+
+header .shopCart {
+  position: absolute;
+  top: 60px;
+  right: 0px;
+  width: 450px;
+  min-height: 100px;
+  background: #fafafa;
+  -webkit-box-shadow: 4px 5px 15px -7px #606060;
+  box-shadow: 4px 5px 15px -7px #606060;
+  z-index: 1000;
+}
+
+header {
+  position: relative;
+}

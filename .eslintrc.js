@@ -16,7 +16,7 @@ const config = {
     ],
     settings: {
         'react': {
-            'version': 'detect', // Automatically detect the React version
+            'version': "^18.3.1",
         },
         'import/resolver': {
             node: {

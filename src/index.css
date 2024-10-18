@@ -88,7 +88,7 @@ padding-bottom: 20px;
 main .item img{
   width: 100%;
   border-radius: 10px 10px 0 0;
-  transition: transform 500 ease;
+  transition: transform 500ms ease;
 }
 main .item img:hover{
   transform: scale(1.05);
@@ -113,7 +113,7 @@ main .addToCart {
   border-radius: 50%;
   cursor: pointer;
   font-weight: 500;
-  transition: transform 500 ease;
+  transition: transform 500ms ease;
 }
 main .addToCart:hover{
   transform: scale(1.5) translateY(-5px);

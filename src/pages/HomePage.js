@@ -1,22 +1,20 @@
+import '../styles/HomePage.css'
+
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import Item from './Item'
+import Items from '../components/Items'
 
-class Items extends React.Component {
-  render() {
-    const { items, addToCart } = this.props;
-    return (
-      <main>
-        {items.map((element) => (
-          <Item key={element.id} item={element} addToCart={addToCart} />
-        ))}
-      </main>
-    );
-  }
+function HomePage({ items, addToCart}) {
+  return (
+    <div>
+      <h1>Каталог товарів</h1>
+      <Items items={items} addToCart={addToCart} />
+    </div>
+  );
 }
 
-Items.propTypes = {
+HomePage.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -27,7 +25,7 @@ Items.propTypes = {
       price: PropTypes.string.isRequired,
     })
   ).isRequired,
-  addToCart: PropTypes.func.isRequired,  
+  addToCart: PropTypes.func.isRequired
 };
 
-export default Items;
+export default HomePage;

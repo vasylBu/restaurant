@@ -3,17 +3,26 @@
   padding: 0;
 }
 
+/* Задаємо фон для всього тіла документа */
 body {
-  background-color: #fff;
-  color: #222;
-  font-weight: 300;
-  font-family: Arial, Helvetica, sans-serif;
+  background-image: url('/src/components/img/background.png'); /* Замініть на шлях до вашого зображення */
+  background-size: cover; /* Застосовуємо, щоб зображення покривало весь екран */
+  background-position: center; /* Центруємо зображення */
+  background-repeat: no-repeat; /* Зображення не буде повторюватись */
+  min-height: 100vh; /* Задаємо мінімальну висоту для повного екрану */
+  margin: 0; /* Видаляємо відступи за замовчуванням */
+  font-family: Arial, sans-serif; /* Можна додати глобальний шрифт, якщо потрібно */
 }
 
 .wrapper {
-   width: 1280px;
-   margin: 50px auto ;
+  background-color: rgba(255, 255, 255, 0.8); /* Білий напівпрозорий фон для контенту */
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 1200px; /* Максимальна ширина для контенту */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Додаємо тінь для об'єму */
+  border-radius: 8px;
 }
+
 
 header .logo {
 font-weight: 600;
@@ -100,25 +109,7 @@ main h2, main p{
 main b {
 color: lightgreen;
 }
-main .addToCart {
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-  background: #ca5252;
-  width: 35px;
-  height: 35px;
-  text-align: center;
-  line-height: 35px;
-  color: #fff;
-  border-radius: 50%;
-  cursor: pointer;
-  font-weight: 500;
-  transition: transform 500ms ease;
-}
-main .addToCart:hover{
-  transform: scale(1.5) translateY(-5px);
-  
-}
+
 header .shopCartButton{
   float: right;
   cursor: pointer;
@@ -145,4 +136,27 @@ header .shopCart {
 
 header {
   position: relative;
+}
+/* Модальне накладання */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Напівпрозорий чорний фон */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Контент модального вікна */
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }

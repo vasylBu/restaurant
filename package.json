@@ -7,6 +7,8 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.7.7",
+    "cors": "^2.8.5",
     "eslint": "^8.57.1",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
@@ -24,7 +26,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint --ignore-pattern node_modules/ --max-warnings 0 ./src",
     "lint:fix": "eslint --ignore-pattern node_modules/ --fix --max-warnings 0 ./src",
-    "prepare": "husky install"
+    "prepare": "husky",
+    "start-server": "node server.js"
   },
   "eslintConfig": {
     "extends": [

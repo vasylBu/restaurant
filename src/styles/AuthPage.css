@@ -1,0 +1,99 @@
+.auth-page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .auth-page h2 {
+    text-align: center;
+    color: #333333;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+  }
+  
+  .auth-page form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .auth-page label {
+    font-size: 0.9rem;
+    color: #666666;
+    margin-bottom: 0.5rem;
+  }
+  
+  .auth-page input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333333;
+    transition: border-color 0.3s ease;
+  }
+  
+  .auth-page input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .auth-page button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .auth-page button:hover {
+    background-color: #0056b3;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: -33px; /* Розташування від верхнього краю форми */
+    right: 0px; /* Розташування від правого краю форми */
+    background: none;
+    border: none;
+    font-size: 1rem;
+    color: #555555;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .close-button:hover {
+    color: #000000;
+  }
+  
+  .toggle-auth {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #666666;
+  }
+  
+  .toggle-auth span {
+    color: #007bff;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .toggle-auth span:hover {
+    color: #0056b3;
+  }
+  

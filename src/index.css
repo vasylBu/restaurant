@@ -1,0 +1,162 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+/* Задаємо фон для всього тіла документа */
+body {
+  background-image: url('/src/components/img/background.png'); /* Замініть на шлях до вашого зображення */
+  background-size: cover; /* Застосовуємо, щоб зображення покривало весь екран */
+  background-position: center; /* Центруємо зображення */
+  background-repeat: no-repeat; /* Зображення не буде повторюватись */
+  min-height: 100vh; /* Задаємо мінімальну висоту для повного екрану */
+  margin: 0; /* Видаляємо відступи за замовчуванням */
+  font-family: Arial, sans-serif; /* Можна додати глобальний шрифт, якщо потрібно */
+}
+
+.wrapper {
+  background-color: rgba(255, 255, 255, 0.8); /* Білий напівпрозорий фон для контенту */
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 1200px; /* Максимальна ширина для контенту */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Додаємо тінь для об'єму */
+  border-radius: 8px;
+}
+
+
+header .logo {
+font-weight: 600;
+font-size: 20px;
+}
+
+header ul.nav{
+  float: right;
+  list-style: none;
+}
+
+header ul.nav li{
+  display: inline;
+  margin-left: 25px;
+  cursor: pointer;
+  transition: opacity 500ms ease;
+}
+header ul.nav li:hover {
+  opacity: 0.5;
+
+}
+
+header .presentation {
+  margin: 50px 0;
+  background: url('./components/img/background.jpeg') no-repeat;
+  width: 100%;
+  height: 800px;
+  background-color: cover;
+  background-position: center center;
+  background-blend-mode: multiply;
+  background-color: #bcbcbc;
+  position: relative;
+}
+header .presentation::after {
+content: 'Товари для дому';
+position: absolute;
+top: 100px;
+left: 100px;
+width: 300px;
+font-size: 40px;
+font-weight: 600 ;
+color: #fff;
+}
+header .presentation::before {
+  content: 'Низька ціна';
+  position: absolute;
+  top: 250px;
+  left: 100px;
+  width: 300px;
+  font-size: 15px;
+  font-weight: 300;
+  color: #fff;
+  }
+footer {
+  text-align: center;
+  margin-top: 100px;
+}
+main {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+main .item{
+  width: 30%;
+  margin-bottom: 50px;
+  background: gray;
+  overflow: hidden;
+  position: relative;
+padding-bottom: 20px;
+}
+main .item img{
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  transition: transform 500ms ease;
+}
+main .item img:hover{
+  transform: scale(1.05);
+}
+main h2, main p{
+  margin: 10px 20px;
+  color: #333;
+}
+main b {
+color: lightgreen;
+}
+
+header .shopCartButton{
+  float: right;
+  cursor: pointer;
+  transition: color, transform 500ms ease;
+}
+header .shopCartButton:hover, 
+header .shopCartButton.active
+{
+  color: #dc3d3d;
+  transform: scale(1.5);
+}
+
+header .shopCart {
+  position: absolute;
+  top: 60px;
+  right: 0px;
+  width: 450px;
+  min-height: 100px;
+  background: #fafafa;
+  -webkit-box-shadow: 4px 5px 15px -7px #606060;
+  box-shadow: 4px 5px 15px -7px #606060;
+  z-index: 1000;
+}
+
+header {
+  position: relative;
+}
+/* Модальне накладання */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Напівпрозорий чорний фон */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Контент модального вікна */
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}

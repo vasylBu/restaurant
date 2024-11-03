@@ -1,0 +1,91 @@
+/* Заголовок */
+.title {
+  font-size: 2.5em;
+  font-weight: 700;
+  text-align: center;
+  margin: 20px 0;
+  color: #333; /* Заміна кольору на більш приглушений */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Контейнер для товарів */
+.itemsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Стилі для кожного товару */
+.item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  width: 220px; /* Збільшення ширини для більш естетичного вигляду */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Стиль для зображення товару */
+.item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 10px;
+}
+
+/* Стиль для заголовка товару */
+.item h2 {
+  font-size: 1.2em;
+  color: #333;
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+/* Опис товару */
+.item p {
+  font-size: 0.9em;
+  color: #666;
+  margin: 8px 0 16px;
+}
+
+/* Ціна товару */
+.item b {
+  font-size: 1.1em;
+  color: #27ae60;
+  display: block;
+  margin-bottom: 15px;
+}
+
+/* Кнопка "Додати до кошика" */
+.addToCart {
+  background-color: #27ae60;
+  color: #fff;
+  font-size: 1.5em;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.addToCart:hover {
+  background-color: #219150;
+  transform: scale(1.1);
+}

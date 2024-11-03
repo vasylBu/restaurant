@@ -1,0 +1,55 @@
+.aboutPage {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #f9f9f9; /* світлий фон для контрасту */
+  border-radius: 12px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* тінь для глибини */
+}
+
+.aboutPage h1 {
+  font-size: 2.8em;
+  font-weight: bold;
+  color: #2c3e50; /* темний колір для заголовка */
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.aboutPage h1::after {
+  content: '';
+  width: 80px;
+  height: 4px;
+  background-color: #3498db; /* акцентний колір */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  border-radius: 2px;
+}
+
+.aboutPage p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: #34495e; /* темний, але м'який колір для тексту */
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.aboutPage p:last-of-type {
+  margin-bottom: 0; /* Забираємо нижній відступ у останнього параграфа */
+}
+
+@media (max-width: 768px) {
+  .aboutPage {
+    padding: 20px;
+  }
+  
+  .aboutPage h1 {
+    font-size: 2em;
+  }
+  
+  .aboutPage p {
+    font-size: 1em;
+  }
+}

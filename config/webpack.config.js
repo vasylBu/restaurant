@@ -1,30 +1,42 @@
-const path = require("path");
+const path = require("node:path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const basicConfig = {
-  entry: path.resolve(__dirname, "../src/index.js"),
-  output: {
-    path: path.resolve(__dirname, "../dist"),
-    filename: "bundle.js",
-  },
-  
-  mode: 'development',
 
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-    ],
+const config = {
+  entry: "./src/index.js",
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "app.js",
+    publicPath: "/",
   },
-  
+  plugins: [
+    // new HtmlWebpackPlugin({
+    //   template: path.resolve(__dirname, "../public/index.html"),
+    // }),
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+    }),
+  ],
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/i,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
+        test: /\.jsx?$/,
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: [
+                "@babel/preset-env",
+                ["@babel/preset-react", { runtime: "automatic" }],
+              ],
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|webp)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "images/[name][ext]",
         },
       },
     ],
@@ -32,12 +44,10 @@ const basicConfig = {
   resolve: {
     extensions: [".js", ".jsx"],
     alias: {
-      "@hooks": path.resolve(__dirname, "../src/hooks"),
+      "@": path.resolve(__dirname, "src"), // Оновлений шлях для alias
+      "@components": path.resolve(__dirname, "src/components"), // Оновлений шлях для alias
     },
-  },
-  devServer: {
-    port: 3000,
   },
 };
 
-module.exports = basicConfig;
+module.exports = config;

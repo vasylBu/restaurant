@@ -23,7 +23,7 @@ const config = {
                 extensions: ['.js', '.jsx'],
             },
             webpack: {
-                config: './config/webpack.dev.config.js',
+                config: './config/webpack.development.config.js',
             },
         },
     },
@@ -39,6 +39,7 @@ const config = {
             },
         ],
         'simple-import-sort/imports': 'error',
+        'unicorn/no-null': 'off',
         'simple-import-sort/exports': 'error',
         'unicorn/prefer-query-selector': 'error',
         'unicorn/filename-case': [

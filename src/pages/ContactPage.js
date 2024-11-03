@@ -1,8 +1,10 @@
 import React from 'react';
 
+import styles from'../styles/ContactPage.module.css';
+
 function ContactPage() {
   return (
-    <div className="contact-page">
+    <div className={styles.contactPage}>
       <h1>Контакти</h1>
       <p>Звяжіться з нами, якщо у вас виникли питання чи пропозиції. Ми завжди раді допомогти!</p>
       <ul>

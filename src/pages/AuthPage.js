@@ -1,60 +1,68 @@
-import '../styles/AuthPage.css';
-
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import { loginUser,registerUser } from '../services/api';
+import useAuth from '../hook/UseAuth';
+import styles from '../styles/AuthPage.module.css';
 
 function AuthPage({ onClose }) {
-  const [isRegistering, setIsRegistering] = useState(true); 
+  const [isRegistering, setIsRegistering] = useState(true);
   const [username, setUsername] = useState('');
-  const [email, setEmail] = useState(''); 
+  const [email, setEmail] = useState('');
+  const {handleRegister, handleLogin } = useAuth();
   const [password, setPassword] = useState('');
-
-  const handleRegister = async (event) => {
-    event.preventDefault();
-    try {
-      await registerUser(username, email, password); 
-      onClose();
-    } catch (error) {
-      console.error('Registration error:', error);
-    }
+  const navigate = useNavigate();
+  const register = async () => {
+    handleRegister(username,email,password);
+      navigate('/');
+    
   };
 
-  const handleLogin = async (event) => {
-    event.preventDefault();
-    try {
-      await loginUser(username, password);
-      onClose();
-    } catch (error) {
-      console.error('Login error:', error);
-    }
+  const login = async () => {
+    handleLogin(email, password);
+      navigate('/');
+  
   };
 
   return (
-    <div className="auth-page">
-      <button onClick={onClose} className="close-button">✖</button>
+    <div className={styles.authPage}>
+      <button onClick={onClose} className={styles.closeButton}>✖</button>
       <h2>{isRegistering ? 'Реєстрація' : 'Вхід'}</h2>
-      <form onSubmit={isRegistering ? handleRegister : handleLogin}>
+      <form onSubmit={isRegistering ? register : login}>
         <div>
           <label>Ім&apos;я користувача:</label>
-          <input type="text" value={username} onChange={(event) => setUsername(event.target.value)} required />
+          <input
+            type="text"
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+            required
+          />
         </div>
         {isRegistering && (
           <div>
             <label>Електронна пошта:</label>
-            <input type="email" value={email} onChange={(event) => setEmail(event.target.value)} required />
+            <input
+              type="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              required
+            />
           </div>
         )}
         <div>
           <label>Пароль:</label>
-          <input type="password" value={password} onChange={(event) => setPassword(event.target.value)} required />
+          <input
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            required
+          />
         </div>
         <button type="submit">{isRegistering ? 'Зареєструватися' : 'Увійти'}</button>
       </form>
-      <p className="toggle-auth">
+      <p className={styles.toggleAuth}>
         {isRegistering ? 'Вже є аккаунт?' : 'Немає аккаунта?'}{' '}
-        <span onClick={() => setIsRegistering(!isRegistering)}>
+        <span onClick={() => setIsRegistering(!isRegistering)} className={styles.toggleLink}>
           {isRegistering ? 'Увійти' : 'Зареєструватися'}
         </span>
       </p>

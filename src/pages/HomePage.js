@@ -1,15 +1,28 @@
-import '../styles/HomePage.css'
+import PropTypes from 'prop-types';
+import React from 'react';
 
-import PropTypes from 'prop-types'
-import React from 'react'
+import styles from '../styles/HomePage.module.css';
 
-import Items from '../components/Items'
-
-function HomePage({ items, addToCart}) {
+function HomePage({ items, addToCart }) {
   return (
-    <div>
-      <h1>Каталог товарів</h1>
-      <Items items={items} addToCart={addToCart} />
+    <div className={styles.homePageContainer}>
+      <h1 className={styles.title}>Каталог товарів</h1>
+      <div className={styles.itemsList}>
+        {items.map((item) => (
+          <div key={item.id} className={styles.item}>
+            <img src={item.img} alt={item.title} className={styles.itemImage} />
+            <h2 className={styles.itemTitle}>{item.title}</h2>
+            <p className={styles.itemDesc}>{item.desc}</p>
+            <b className={styles.itemPrice}>{item.price}$</b>
+            <div
+              className={styles.addToCart}
+              onClick={() => addToCart(item)}
+            >
+              +
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -25,7 +38,7 @@ HomePage.propTypes = {
       price: PropTypes.string.isRequired,
     })
   ).isRequired,
-  addToCart: PropTypes.func.isRequired
+  addToCart: PropTypes.func.isRequired,
 };
 
 export default HomePage;

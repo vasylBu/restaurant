@@ -1,10 +1,10 @@
-import './index.css';
-
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Footer from './components/Footer';
-import Header from './components/Header';
+import styles from './App.module.css';
+import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
+import AboutPage from './pages/AboutPage';
 import AuthPage from './pages/AuthPage';
 import ContactPage from './pages/ContactPage';
 import HomePage from './pages/HomePage';
@@ -47,7 +47,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div className='wrapper'>
+        <div className={styles.wrapper}>
           <Header cart={this.state.cart} onCabinetClick={this.handleShowRegistration} />
           <Routes>
             <Route path="/" element={<HomePage items={this.state.filteredItems} addToCart={this.addToCart} />} />
